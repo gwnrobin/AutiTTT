@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thomas\\Desktop\\gmod\\ServerCode\\GameServer.csproj": {}
+    "C:\\Users\\Thomas\\Documents\\AutiTTT\\Dedicated Server\\GameServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thomas\\Desktop\\gmod\\ServerCode\\GameServer.csproj": {
+    "C:\\Users\\Thomas\\Documents\\AutiTTT\\Dedicated Server\\GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thomas\\Desktop\\gmod\\ServerCode\\GameServer.csproj",
+        "projectUniqueName": "C:\\Users\\Thomas\\Documents\\AutiTTT\\Dedicated Server\\GameServer.csproj",
         "projectName": "GameServer",
-        "projectPath": "C:\\Users\\Thomas\\Desktop\\gmod\\ServerCode\\GameServer.csproj",
+        "projectPath": "C:\\Users\\Thomas\\Documents\\AutiTTT\\Dedicated Server\\GameServer.csproj",
         "packagesPath": "C:\\Users\\Thomas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thomas\\Desktop\\gmod\\ServerCode\\obj\\",
+        "outputPath": "C:\\Users\\Thomas\\Documents\\AutiTTT\\Dedicated Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thomas\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -13,6 +13,9 @@ namespace GameServer
         public Vector3 position;
         public Quaternion rotation;
 
+        public int vMomentum;
+        private Boolean sHold = false;
+
         private float moveSpeed = 5f / Constants.TICKS_PER_SEC;
         private bool[] inputs;
 
@@ -47,7 +50,14 @@ namespace GameServer
             }
             if (inputs[4]) 
             {
-                //Jump
+                if (position.Y <= 0 && !sHold) //Change when collision is added!
+                {
+                    vMomentum = 100;
+                    sHold = true;
+                }
+            } else if (!inputs[4])
+            {
+                sHold = false;
             }
 
             Move(_inputDirection);
@@ -61,7 +71,6 @@ namespace GameServer
             Vector3 _moveDirection = _right * _inputDirection.X + _forward * _inputDirection.Y;
             position += _moveDirection * moveSpeed;
 
-            ServerSend.PlayerPosition(this);
             ServerSend.PlayerRotation(this);
         }
 

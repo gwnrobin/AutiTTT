@@ -11,3 +11,16 @@ C:\Users\Thomas\Desktop\gmod\ServerCode\obj\Debug\netcoreapp3.0\GameServer.dll
 C:\Users\Thomas\Desktop\gmod\ServerCode\obj\Debug\netcoreapp3.0\GameServer.pdb
 C:\Users\Thomas\Desktop\gmod\ServerCode\obj\Debug\netcoreapp3.0\GameServer.genruntimeconfig.cache
 C:\Users\Thomas\Desktop\gmod\ServerCode\obj\Debug\netcoreapp3.0\GameServer.csproj.CoreCompileInputs.cache
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\obj\Debug\netcoreapp3.0\GameServer.csprojAssemblyReference.cache
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\obj\Debug\netcoreapp3.0\GameServer.AssemblyInfoInputs.cache
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\obj\Debug\netcoreapp3.0\GameServer.AssemblyInfo.cs
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\obj\Debug\netcoreapp3.0\GameServer.csproj.CoreCompileInputs.cache
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\obj\Debug\netcoreapp3.0\GameServer.dll
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\obj\Debug\netcoreapp3.0\GameServer.pdb
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\bin\Debug\netcoreapp3.0\GameServer.exe
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\bin\Debug\netcoreapp3.0\GameServer.deps.json
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\bin\Debug\netcoreapp3.0\GameServer.runtimeconfig.json
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\bin\Debug\netcoreapp3.0\GameServer.runtimeconfig.dev.json
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\bin\Debug\netcoreapp3.0\GameServer.dll
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\bin\Debug\netcoreapp3.0\GameServer.pdb
+C:\Users\Thomas\Documents\AutiTTT\Dedicated Server\obj\Debug\netcoreapp3.0\GameServer.genruntimeconfig.cache
