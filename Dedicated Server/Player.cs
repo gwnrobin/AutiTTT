@@ -52,7 +52,7 @@ namespace GameServer
             {
                 if (position.Y <= 0 && !sHold) //Change when collision is added!
                 {
-                    vMomentum = 100;
+                    vMomentum = 50;
                     sHold = true;
                 }
             } else if (!inputs[4])

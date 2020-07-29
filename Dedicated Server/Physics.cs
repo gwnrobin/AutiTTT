@@ -20,7 +20,7 @@ namespace GameServer
                     _client.player.position +=  _up * _client.player.vMomentum / 100;
                     if (_client.player.position.Y > 0)
                     {
-                        _client.player.vMomentum -= _client.player.vMomentum / 2 + 7;
+                        _client.player.vMomentum -= _client.player.vMomentum * 1/4 + 2;
                     } else if (_client.player.position.Y < 0)
                     {
                         _client.player.position.Y = 0;
