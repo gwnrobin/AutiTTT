@@ -1,0 +1,97 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "GameServer/1.0.0": {
+        "dependencies": {
+          "BepuPhysics": "2.2.0",
+          "BepuUtilities": "2.2.0",
+          "System.Numerics.Vectors": "4.5.0"
+        },
+        "runtime": {
+          "GameServer.dll": {}
+        }
+      },
+      "BepuPhysics/2.2.0": {
+        "dependencies": {
+          "BepuUtilities": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/BepuPhysics.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "BepuUtilities/2.2.0": {
+        "dependencies": {
+          "System.Memory": "4.5.3",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/BepuUtilities.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {},
+      "System.Numerics.Vectors/4.5.0": {},
+      "System.Runtime.CompilerServices.Unsafe/4.7.0": {
+        "runtime": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "4.0.6.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GameServer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BepuPhysics/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lMNgfmqo7P9Lfs+rCwu1Hnp1TJDugzGRlz5ICeJPABL4XEntCRvmKbXqf+P3/ztuPlXR35lqouK6FRWrCtCWKA==",
+      "path": "bepuphysics/2.2.0",
+      "hashPath": "bepuphysics.2.2.0.nupkg.sha512"
+    },
+    "BepuUtilities/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AG5Ihk9dL9etgahDKDioGatXY9VjQL+fXsSLA6GucoqVpw9T2BkWVyvR56td6iVcQ9zw0DN27NbznatIOHibpA==",
+      "path": "bepuutilities/2.2.0",
+      "hashPath": "bepuutilities.2.2.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "path": "system.numerics.vectors/4.5.0",
+      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IpU1lcHz8/09yDr9N+Juc7SCgNUz+RohkCQI+KsWKR67XxpFr8Z6c8t1iENCXZuRuNCc4HBwme/MDHNVCwyAKg==",
+      "path": "system.runtime.compilerservices.unsafe/4.7.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.7.0.nupkg.sha512"
+    }
+  }
+}
