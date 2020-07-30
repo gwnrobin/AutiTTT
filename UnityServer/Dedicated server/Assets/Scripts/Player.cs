@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -69,6 +70,13 @@ public class Player : MonoBehaviour
             }
         }
         yVelocity += gravity;
+
+        if (controller.transform.position.y < -1)
+        {
+            controller.enabled = false;
+            controller.transform.position = new Vector3(0f, 0.5f, 0f);
+            controller.enabled = true;
+        }
 
         _moveDirection.y = yVelocity;
         controller.Move(_moveDirection);

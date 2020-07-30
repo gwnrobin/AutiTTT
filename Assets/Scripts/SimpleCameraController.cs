@@ -31,7 +31,6 @@ namespace UnityTemplateProjects
                 y += rotatedTranslation.y;
                 z += rotatedTranslation.z;
             }
-
             public void LerpTowards(CameraState target, float positionLerpPct, float rotationLerpPct)
             {
                 yaw = Mathf.Lerp(yaw, target.yaw, rotationLerpPct);
