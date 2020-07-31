@@ -40,4 +40,13 @@ public class GameManager : MonoBehaviour
         _player.GetComponent<PlayerManager>().username = _username;
         players.Add(_id, _player.GetComponent<PlayerManager>());
     }
+    
+    public void RemovePlayer(int _id)
+    {
+        ThreadManager.ExecuteOnMainThread(() =>
+        {
+            UnityEngine.Object.Destroy(players[_id].gameObject);
+            players.Remove(_id);
+        });
+    }
 }

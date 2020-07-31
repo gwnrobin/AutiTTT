@@ -235,6 +235,8 @@ public class Client
                 ServerSend.SpawnPlayer(_client.id, player);
             }
         }
+
+        ServerSend.allowUDP(id);
     }
 
     /// <summary>Disconnects the client and stops all network traffic.</summary>
@@ -242,11 +244,21 @@ public class Client
     {
         Debug.Log($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
 
+        int _id = player.id;
+
         ThreadManager.ExecuteOnMainThread(() =>
         {
             UnityEngine.Object.Destroy(player.gameObject);
             player = null;
         });
+
+        foreach (Client _client in Server.clients.Values)
+        {
+            if (_client.player != null)
+            {
+                ServerSend.RemovePlayer(_client.id, _id);
+            }
+        }
 
         tcp.Disconnect();
         udp.Disconnect();

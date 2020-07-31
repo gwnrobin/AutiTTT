@@ -103,6 +103,26 @@ public class ServerSend
         }
     }
 
+    public static void allowUDP(int _toClient)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.allowUDP))
+        {
+            _packet.Write(1);
+
+            SendTCPData(_toClient, _packet);
+        }
+    }
+
+    public static void RemovePlayer(int _toClient, int _id)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.removePlayer))
+        {
+            _packet.Write(_id);
+
+            SendTCPData(_toClient, _packet);
+        }
+    }
+
     /// <summary>Sends a player's updated position to all clients.</summary>
     /// <param name="_player">The player whose position to update.</param>
     public static void PlayerPosition(Player _player)
