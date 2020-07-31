@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
+using Mono.Nat;
 
 public class Server
 {
@@ -15,6 +16,7 @@ public class Server
 
     private static TcpListener tcpListener;
     private static UdpClient udpListener;
+    private static Dictionary<System.Net.IPAddress, INatDevice> globalDevice = new Dictionary<System.Net.IPAddress, INatDevice>();
 
     /// <summary>Starts the server.</summary>
     /// <param name="_maxPlayers">The maximum players that can be connected simultaneously.</param>
@@ -34,7 +36,25 @@ public class Server
         udpListener = new UdpClient(Port);
         udpListener.BeginReceive(UDPReceiveCallback, null);
 
+        NatUtility.DeviceFound += DeviceFound;
+        NatUtility.StartDiscovery();
+
         Debug.Log($"Server started on port {Port}.");
+    }
+
+    private static void DeviceFound(object sender, DeviceEventArgs args)
+    {
+        if (args.Device.GetSpecificMapping(Protocol.Tcp, 27015).PublicPort == -1)
+        {
+            Debug.Log("UPnP device found trying to automatically port forward! " + args.Device.GetExternalIP());
+            INatDevice device = args.Device;
+            globalDevice.Add(args.Device.GetExternalIP(), device);
+            device.CreatePortMap(new Mapping(Protocol.Tcp, 27015, 27015));
+            device.CreatePortMap(new Mapping(Protocol.Udp, 27015, 27015));
+        } else
+        {
+            Debug.Log("Device already port forwarded! " + args.Device.GetExternalIP());
+        }
     }
 
     /// <summary>Handles new TCP connections.</summary>
@@ -137,5 +157,19 @@ public class Server
     {
         tcpListener.Stop();
         udpListener.Close();
+
+        foreach (KeyValuePair<System.Net.IPAddress, INatDevice> device in globalDevice)
+        {
+            if (device.Value.GetSpecificMapping(Protocol.Tcp, 27015).PublicPort != -1)
+            {
+                device.Value.DeletePortMap(new Mapping(Protocol.Tcp, 27015, 27015));
+
+            }
+            if (device.Value.GetSpecificMapping(Protocol.Udp, 27015).PublicPort != -1)
+            {
+                device.Value.DeletePortMap(new Mapping(Protocol.Udp, 27015, 27015));
+
+            }
+        }
     }
 }
