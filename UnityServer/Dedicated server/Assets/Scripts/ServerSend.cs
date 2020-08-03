@@ -113,16 +113,6 @@ public class ServerSend
         }
     }
 
-    public static void RemovePlayer(int _toClient, int _id)
-    {
-        using (Packet _packet = new Packet((int)ServerPackets.removePlayer))
-        {
-            _packet.Write(_id);
-
-            SendTCPData(_toClient, _packet);
-        }
-    }
-
     /// <summary>Sends a player's updated position to all clients.</summary>
     /// <param name="_player">The player whose position to update.</param>
     public static void PlayerPosition(Player _player)
@@ -146,6 +136,16 @@ public class ServerSend
             _packet.Write(_player.transform.rotation);
 
             SendUDPDataToAll(_player.id, _packet);
+        }
+    }
+
+    public static void PlayerDisconnected(int _playerId)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.playerDisconnected))
+        {
+            _packet.Write(_playerId);
+
+            SendTCPDataToAll(_packet);
         }
     }
     #endregion

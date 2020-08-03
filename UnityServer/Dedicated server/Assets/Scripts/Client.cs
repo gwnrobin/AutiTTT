@@ -252,15 +252,9 @@ public class Client
             player = null;
         });
 
-        foreach (Client _client in Server.clients.Values)
-        {
-            if (_client.player != null)
-            {
-                ServerSend.RemovePlayer(_client.id, _id);
-            }
-        }
-
         tcp.Disconnect();
         udp.Disconnect();
+
+        ServerSend.PlayerDisconnected(id);
     }
 }

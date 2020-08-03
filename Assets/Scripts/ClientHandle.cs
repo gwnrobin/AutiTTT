@@ -35,13 +35,6 @@ public class ClientHandle : MonoBehaviour
         GameManager.instance.SpawnPlayer(_id, _username, _position, _rotation);
     }
 
-    public static void RemovePlayer(Packet _packet)
-    {
-        int _id = _packet.ReadInt();
-
-        GameManager.instance.RemovePlayer(_id);
-    }
-
     public static void PlayerPosition(Packet _packet)
     {
         int _id = _packet.ReadInt();
@@ -57,5 +50,13 @@ public class ClientHandle : MonoBehaviour
         Quaternion _rotation = _packet.ReadQuaternion();
 
         GameManager.players[_id].transform.rotation = _rotation;
+    }
+
+    public static void PlayerDisconnected(Packet _packet)
+    {
+        int _id = _packet.ReadInt();
+
+        Destroy(GameManager.players[_id].gameObject);
+        GameManager.players.Remove(_id);
     }
 }
