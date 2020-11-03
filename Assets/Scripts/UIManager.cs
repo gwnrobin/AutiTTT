@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     {
         if (IPadress.text == null)
         {
-            //give warning
+            print("Ip not found!");
         }
         else
         {

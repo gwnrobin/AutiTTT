@@ -9,9 +9,11 @@ public class Client : MonoBehaviour
 {
     public static Client instance;
     public static int dataBufferSize = 4096;
-
+    [NonSerialized]
     public string ip = "0.0.0.0";
+    [NonSerialized]
     public int port = 27015;
+    [NonSerialized]
     public int myId = 0;
     public TCP tcp;
     public UDP udp;
@@ -33,12 +35,6 @@ public class Client : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        tcp = new TCP();
-        udp = new UDP();
-    }
-
     private void OnApplicationQuit()
     {
         Disconnect();
@@ -46,6 +42,9 @@ public class Client : MonoBehaviour
 
     public void ConnectToServer()
     {
+        tcp = new TCP();
+        udp = new UDP();
+
         InitializeClientData();
 
         isConnected = true;

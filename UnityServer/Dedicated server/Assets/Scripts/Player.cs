@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     public CharacterController controller;
     public Transform shootOrigin;
     public float gravity = -9.81f;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
+    public float runSpeed = 7f;
+
     public float jumpSpeed = 5f;
     public float health;
     public float maxHealth = 100f;
@@ -122,7 +124,7 @@ public class Player : MonoBehaviour
         health -= _damage;
         if (health <= 0)
         {
-            health = 0f;
+            health = 100f;
             controller.enabled = false;
             transform.position = new Vector3(0f, 25f, 0);
             ServerSend.PlayerPosition(this);

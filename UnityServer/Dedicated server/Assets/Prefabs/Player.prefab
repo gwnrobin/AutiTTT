@@ -81,7 +81,8 @@ MonoBehaviour:
   controller: {fileID: 3468743269650166254}
   shootOrigin: {fileID: 2895467047236251729}
   gravity: -9.81
-  moveSpeed: 5
+  moveSpeed: 3
+  runSpeed: 7
   jumpSpeed: 5
   health: 0
   maxHealth: 100
