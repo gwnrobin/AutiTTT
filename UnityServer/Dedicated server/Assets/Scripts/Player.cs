@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float gravity = -9.81f;
     public float moveSpeed = 3f;
     public float runSpeed = 7f;
+    public float verticalLookDirection = 0f;
 
     public float jumpSpeed = 5f;
     public float health;
@@ -92,6 +93,7 @@ public class Player : MonoBehaviour
 
         ServerSend.PlayerPosition(this);
         ServerSend.PlayerRotation(this);
+        ServerSend.PlayerVerticalLookDirection(this);
     }
 
     /// <summary>Updates the player input with newly received input.</summary>
@@ -101,6 +103,11 @@ public class Player : MonoBehaviour
     {
         inputs = _inputs;
         transform.rotation = _rotation;
+    }
+
+    public void VerticalLookDirection(float _verticalLookDirection)
+    {
+        verticalLookDirection = _verticalLookDirection;
     }
 
     public void Shoot(Vector3 _viewDirection)

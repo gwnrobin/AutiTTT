@@ -25,7 +25,9 @@ public class ServerHandle
             _inputs[i] = _packet.ReadBool();
         }
         Quaternion _rotation = _packet.ReadQuaternion();
+        float _verticalLookDirection = _packet.ReadFloat();
 
+        Server.clients[_fromClient].player.VerticalLookDirection(_verticalLookDirection);
         Server.clients[_fromClient].player.SetInput(_inputs, _rotation);
     }
 

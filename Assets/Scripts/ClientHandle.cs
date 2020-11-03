@@ -19,6 +19,7 @@ public class ClientHandle : MonoBehaviour
     public static void allowUDP(Packet _packet)
     {
         int isAllowed = _packet.ReadInt();
+        print("udp allowed");
         if (isAllowed == 1)
         {
             Client.instance.udp.Connect(((IPEndPoint)Client.instance.tcp.socket.Client.LocalEndPoint).Port);
@@ -43,6 +44,14 @@ public class ClientHandle : MonoBehaviour
         GameManager.players[_id].transform.position = _position;
         GameManager.players[_id].transform.hasChanged = true;
 
+    }
+
+    public static void VerticalLookPosition(Packet _packet)
+    {
+        int _id = _packet.ReadInt();
+        float _verticalLookPosition = _packet.ReadFloat();
+
+        GameManager.players[_id].verticalRotation = _verticalLookPosition;
     }
 
     public static void PlayerRotation(Packet _packet)

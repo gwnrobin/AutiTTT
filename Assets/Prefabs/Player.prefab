@@ -48,6 +48,7 @@ MonoBehaviour:
   username: 
   health: 0
   maxHealth: 100
+  verticalRotation: 0
   model: {fileID: 0}
 --- !u!95 &6507291465212437241
 Animator:
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1f73216fffea9469844433f41673c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 5857175284938228612}
 --- !u!1001 &7094751599995951166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,10 +146,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7813590141776298306, guid: 8a7d660a1aaea1e4da8ecd48b49cd895, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42ad3dd52bc97f04a819204febac0e33, type: 2}
     - target: {fileID: 919132149155446097, guid: 8a7d660a1aaea1e4da8ecd48b49cd895, type: 3}
       propertyPath: m_Name
       value: ybot
       objectReference: {fileID: 0}
+    - target: {fileID: 5822821947120931875, guid: 8a7d660a1aaea1e4da8ecd48b49cd895, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f8c25ae4affeab47a0607f53b217a2d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7d660a1aaea1e4da8ecd48b49cd895, type: 3}
 --- !u!1 &7977272610266916207 stripped

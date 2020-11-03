@@ -14,7 +14,8 @@ public enum ServerPackets
     allowUDP,
     playerDisconnected,
     playerHealth,
-    playerRespawned
+    playerRespawned,
+    verticalLookDirection
 }
 
 /// <summary>Sent from client to server.</summary>

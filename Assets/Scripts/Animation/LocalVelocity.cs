@@ -3,7 +3,7 @@
 public class LocalVelocity : MonoBehaviour
 {
     [SerializeField]
-    private Transform target;
+    private Transform target = null;
 
     private Vector3 worldVelocity;
     private Vector3 previousVelocity;

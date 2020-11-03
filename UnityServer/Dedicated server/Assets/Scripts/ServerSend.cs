@@ -107,6 +107,7 @@ public class ServerSend
     {
         using (Packet _packet = new Packet((int)ServerPackets.allowUDP))
         {
+            
             _packet.Write(1);
 
             SendTCPData(_toClient, _packet);
@@ -134,6 +135,17 @@ public class ServerSend
         {
             _packet.Write(_player.id);
             _packet.Write(_player.transform.rotation);
+
+            SendUDPDataToAll(_player.id, _packet);
+        }
+    }
+
+    public static void PlayerVerticalLookDirection(Player _player)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.verticalLookDirection))
+        {
+            _packet.Write(_player.id);
+            _packet.Write(_player.verticalLookDirection);
 
             SendUDPDataToAll(_player.id, _packet);
         }

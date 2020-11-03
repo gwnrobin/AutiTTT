@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Client : MonoBehaviour
 {
@@ -68,7 +69,15 @@ public class Client : MonoBehaviour
             };
 
             receiveBuffer = new byte[dataBufferSize];
-            socket.BeginConnect(instance.ip, instance.port, ConnectCallback, socket);
+            print("trying to connect now!");
+            var result = socket.BeginConnect(instance.ip, instance.port, ConnectCallback, socket);
+            result.AsyncWaitHandle.WaitOne(6666);
+            if (!socket.Connected)
+            {
+                socket.Close();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            
         }
 
         private void ConnectCallback(IAsyncResult _result)
@@ -148,6 +157,7 @@ public class Client : MonoBehaviour
                     using (Packet _packet = new Packet(_packetBytes))
                     {
                         int _packetId = _packet.ReadInt();
+                        
                         packetHandlers[_packetId](_packet);
                     }
                 });
@@ -281,6 +291,7 @@ public class Client : MonoBehaviour
             { (int)ServerPackets.playerDisconnected, ClientHandle.PlayerDisconnected },
             { (int)ServerPackets.playerHealth, ClientHandle.PlayerHealth },
             { (int)ServerPackets.playerRespawned, ClientHandle.PlayerRespawned },
+            { (int)ServerPackets.verticalLookDirection, ClientHandle.VerticalLookPosition },
         };
         Debug.Log("Initialized packets.");
     }
