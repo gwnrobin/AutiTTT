@@ -140,12 +140,12 @@ public class ServerSend
         }
     }
 
-    public static void PlayerVerticalLookDirection(Player _player)
+    public static void PlayerVerticalRotation(Player _player)
     {
-        using (Packet _packet = new Packet((int)ServerPackets.verticalLookDirection))
+        using (Packet _packet = new Packet((int)ServerPackets.playerVerticalRotation))
         {
             _packet.Write(_player.id);
-            _packet.Write(_player.verticalLookDirection);
+            _packet.Write(_player.verticalRotation);
 
             SendUDPDataToAll(_player.id, _packet);
         }

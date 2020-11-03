@@ -7,7 +7,6 @@ public class CameraController : MonoBehaviour
     public PlayerManager player;
     public float sensitivity = 100f;
     public float clampAngle = 85f;
-
     private float verticalRotation;
     private float horizontalRotation;
 
@@ -29,6 +28,16 @@ public class CameraController : MonoBehaviour
             Look();
         }
         Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
+    }
+
+    private void FixedUpdate()
+    {
+        SendPlayerVerticalRotation();
+    }
+
+    private void SendPlayerVerticalRotation()
+    {
+        ClientSend.PlayerVerticalRotation(transform.localRotation.x * -1 / Quaternion.Euler(clampAngle, 0, 0).x * 1);
     }
 
     private void Look()

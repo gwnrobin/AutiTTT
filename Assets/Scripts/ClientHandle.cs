@@ -46,12 +46,12 @@ public class ClientHandle : MonoBehaviour
 
     }
 
-    public static void VerticalLookPosition(Packet _packet)
+    public static void PlayerVerticalRotation(Packet _packet)
     {
         int _id = _packet.ReadInt();
-        float _verticalLookPosition = _packet.ReadFloat();
+        float _verticalRotation = _packet.ReadFloat();
 
-        GameManager.players[_id].verticalRotation = _verticalLookPosition;
+        GameManager.players[_id].verticalRotation = _verticalRotation;
     }
 
     public static void PlayerRotation(Packet _packet)

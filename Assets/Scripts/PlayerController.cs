@@ -30,6 +30,6 @@ public class PlayerController : MonoBehaviour
             Input.GetKey(KeyCode.Space),
         };
 
-        ClientSend.PlayerMovement(_inputs, camTransform.rotation.x);
+        ClientSend.PlayerMovement(_inputs);
     }
 }

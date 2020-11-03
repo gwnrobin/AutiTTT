@@ -25,9 +25,7 @@ public class ServerHandle
             _inputs[i] = _packet.ReadBool();
         }
         Quaternion _rotation = _packet.ReadQuaternion();
-        float _verticalLookDirection = _packet.ReadFloat();
-
-        Server.clients[_fromClient].player.VerticalLookDirection(_verticalLookDirection);
+       
         Server.clients[_fromClient].player.SetInput(_inputs, _rotation);
     }
 
@@ -37,4 +35,11 @@ public class ServerHandle
         Debug.DrawRay(Server.clients[_fromClient].player.transform.position, _shootDirection, Color.green);
         Server.clients[_fromClient].player.Shoot(_shootDirection);
     }
+
+    public static void PlayerVerticalRotation(int _fromClient, Packet _packet)
+    {
+        float _verticalRotation = _packet.ReadFloat();
+        Server.clients[_fromClient].player.VerticalRotation(_verticalRotation);
+    }
+
 }
