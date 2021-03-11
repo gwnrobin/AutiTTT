@@ -22,8 +22,6 @@ public class LocalVelocity : MonoBehaviour
 
     private void CalculateVelocity()
     {
-        //GameManager.players[target.gameObject.GetComponent<PlayerManager>().id].transform.hasChanged = false;
-        //Debug.Log(GameManager.players[target.gameObject.GetComponent<PlayerManager>().id].transform.hasChanged);
         if (target.transform.hasChanged == true){
             worldVelocity = ((target.transform.position - previousVelocity)) / Time.deltaTime;
             previousVelocity = target.transform.position;

@@ -10,7 +10,9 @@ public class AnimationHandler : MonoBehaviour
 
     private int velocityXHash;
     private int velocityYHash;
-    private int verticalRotation;
+    private int runningHash;
+
+    private int verticalRotationHash;
 
     private float x;
     private float y;
@@ -22,12 +24,14 @@ public class AnimationHandler : MonoBehaviour
 
         velocityXHash = Animator.StringToHash("Velocity X");
         velocityYHash = Animator.StringToHash("Velocity Y");
-        verticalRotation = Animator.StringToHash("Horizontal Aim");
+        runningHash = Animator.StringToHash("Running");
+
+        verticalRotationHash = Animator.StringToHash("Horizontal Aim");
     }
 
     private void Update()
     {
-        Vector3 velocity = localVelocity.GetVelocity.normalized;
+        Vector3 velocity = localVelocity.GetVelocity;
 
         x = Mathf.Lerp(x, velocity.x, .25f);
         y = Mathf.Lerp(y, velocity.z, .25f);
@@ -35,7 +39,9 @@ public class AnimationHandler : MonoBehaviour
         animator.SetFloat(velocityXHash, x);
         animator.SetFloat(velocityYHash, y);
 
-        animator.SetFloat(verticalRotation, playerManager.verticalRotation);
+        //animator.SetBool(runningHash, localVelocity.GetVelocity.magnitude >= 6f);
+        
+        animator.SetFloat(verticalRotationHash, playerManager.verticalRotation);
     }
 }
 

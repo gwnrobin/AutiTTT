@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
             Input.GetKey(KeyCode.A),
             Input.GetKey(KeyCode.D),
             Input.GetKey(KeyCode.Space),
+            Input.GetKey(KeyCode.LeftShift),
+            Input.GetKey(KeyCode.C),
         };
 
         ClientSend.PlayerMovement(_inputs);

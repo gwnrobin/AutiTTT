@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     public CharacterController controller;
     public Transform shootOrigin;
     public float gravity = -9.81f;
-    public float moveSpeed = 3f;
+    public float walkingSpeed = 3f;
+    public float runningSpeed = 7f;
     public float runSpeed = 7f;
     public float verticalRotation = 0f;
 
@@ -24,7 +25,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         gravity *= Time.fixedDeltaTime * Time.fixedDeltaTime;
-        moveSpeed *= Time.fixedDeltaTime;
+        walkingSpeed *= Time.fixedDeltaTime;
+        runningSpeed *= Time.fixedDeltaTime;
         jumpSpeed *= Time.fixedDeltaTime;
     }
 
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
         username = _username;
         health = maxHealth;
 
-        inputs = new bool[5];
+        inputs = new bool[7];
     }
 
     /// <summary>Processes player input and moves the player.</summary>
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
     private void Move(Vector2 _inputDirection)
     {
         Vector3 _moveDirection = transform.right * _inputDirection.x + transform.forward * _inputDirection.y;
-        _moveDirection *= moveSpeed;
+        _moveDirection *= inputs[5] ? runningSpeed : walkingSpeed;
 
         if (controller.isGrounded)
         {
